@@ -107,7 +107,7 @@ class Completions(
     val generalExclude =
       isUninterestingSymbol(sym) ||
         !isNotLocalForwardReference(sym) ||
-        hasSyntheticCursorSuffix
+        hasSyntheticCursorSuffix || sym.isAllOf(Param | Synthetic)
 
     def isWildcardParam(sym: Symbol) =
       if sym.isTerm && sym.owner.isAnonymousFunction then
